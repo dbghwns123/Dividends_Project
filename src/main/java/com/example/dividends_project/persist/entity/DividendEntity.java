@@ -1,10 +1,7 @@
 package com.example.dividends_project.persist.entity;
 
 import com.example.dividends_project.model.Dividend;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -15,6 +12,13 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @Entity(name = "DIVIDEND")
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        columnNames = {"companyId", "date"}
+                )
+        }
+)
 public class DividendEntity {
 
     @Id
