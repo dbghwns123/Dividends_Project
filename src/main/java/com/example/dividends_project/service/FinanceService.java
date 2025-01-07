@@ -1,5 +1,6 @@
 package com.example.dividends_project.service;
 
+import com.example.dividends_project.exception.impl.NoCompanyException;
 import com.example.dividends_project.model.Company;
 import com.example.dividends_project.model.Dividend;
 import com.example.dividends_project.model.ScrapedResult;
@@ -37,7 +38,7 @@ public class FinanceService {
         // 1. 회사명을 기준으로 회사 정보를 조회
         CompanyEntity company = this.companyRepository.findByName(companyName)
                 // .orElseThrow()는 값이 없으면 인자로 넘겨주는 예외를 발생식키고 값이 있으면 Optional이 벗겨진 CompanyEntity를 반환함
-                .orElseThrow(() -> new RuntimeException("존재하지 않는 회사명입니다."));
+                .orElseThrow(() -> new NoCompanyException());
 
 
         // 2. 조회된 회사 ID 로 배당금 정보 조회
