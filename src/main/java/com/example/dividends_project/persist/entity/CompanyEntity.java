@@ -1,7 +1,7 @@
 package com.example.dividends_project.persist.entity;
 
 import com.example.dividends_project.model.Company;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
